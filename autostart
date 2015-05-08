@@ -1,0 +1,8 @@
+setxkbmap -layout gb,ru -option grp:switch,grp:shifts_toggle &
+xset r rate 200 30 &
+
+nitrogen --restore &
+tint2 &
+xxkb &
+#wicd &
+#conky &
