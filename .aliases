@@ -1,0 +1,6 @@
+alias aliases='vi ~/.aliases'
+alias l='ls -lh'
+alias la='ls -alh'
+alias du='du -h'
+alias df='df -h'
+alias irc='BitchX'
