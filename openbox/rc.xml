@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <openbox_config xmlns="http://openbox.org/3.4/rc">
   <resistance>
     <strength>10</strength>
@@ -36,7 +35,7 @@
     <primaryMonitor/>
   </placement>
   <theme>
-    <name>Mire_v2_lime</name>
+    <name>Mikachu</name>
     <titleLayout>NLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -88,6 +87,9 @@
     </font>
     <font place="ActiveOnScreenDisplay">
       <name/>
+      <size>8</size>
+      <weight/>
+      <slant/>
     </font>
     <font place="InactiveOnScreenDisplay">
       <name>Sans</name>
@@ -311,7 +313,18 @@
     </keybind>
     <keybind key="W-t">
       <action name="Execute">
-        <command>lxterminal</command>
+        <command>lxterminal --geometry=80x25</command>
+      	<maximized>true</maximized>
+      </action>
+    </keybind>
+    <keybind key="W-f">
+      <action name="Execute">
+        <command>lxterminal -e mc</command>
+      </action>
+    </keybind>
+    <keybind key="W-a">
+      <action name="Execute">
+        <command>uxterm -e alsamixer</command>
       </action>
     </keybind>
     <keybind key="W-n">
@@ -331,10 +344,9 @@
     </keybind>
     <keybind key="W-b">
       <action name="Execute">
-        <command>~/.firefox/firefox-bin</command>
+        <command>firefox</command>
       </action>
     </keybind>
-
     <!--keybindings for menus and launchers ############################### -->
     <keybind key="W-r">
       <action name="Execute">
@@ -347,56 +359,52 @@
       </action>
     </keybind>
     <keybind key="W-w">
-	<action name="ShowMenu">
-          <menu>root-menu</menu>
-        </action>
+      <action name="ShowMenu">
+        <menu>root-menu</menu>
+	<position><x>200</x><y>200</y></position>
+      </action>
     </keybind>
-
     <!-- Launch Task Manager with Ctrl+Alt+Del ############################ -->
     <keybind key="A-C-Delete">
       <action name="Execute">
-	<command>lxterminal -e htop</command>
+        <command>lxterminal -e htop</command>
       </action>
     </keybind>
-    
     <!-- Volume Fn ######################################################## -->
     <keybind key="XF86AudioRaiseVolume">
       <action name="Execute">
-        <command>mixer vol +5</command>
+        <command>amixer set Master 5%+</command>
       </action>
     </keybind>
     <keybind key="XF86AudioLowerVolume">
       <action name="Execute">
-        <command>mixer vol -5</command>
+        <command>amixer set Master 5%-</command>
       </action>
     </keybind>
     <keybind key="XF86AudioMute">
       <action name="Execute">
-        <command>mixer vol toggle</command>
+        <command>amixer set Master toggle</command>
       </action>
     </keybind>
-    
     <!-- Volume WinKey #################################################### -->
     <keybind key="W-Up">
       <action name="Execute">
-        <command>mixer vol +5</command>
+        <command>amixer set Master 5%+</command>
       </action>
     </keybind>
     <keybind key="W-Down">
       <action name="Execute">
-        <command>mixer vol -5</command>
+        <command>amixer set Master 5%-</command>
       </action>
     </keybind>
     <keybind key="W-Delete">
       <action name="Execute">
-        <command>mixer vol toggle</command>
+        <command>amixer set Master toggle</command>
       </action>
     </keybind>
-    
     <keybind key="W-F11">
       <action name="Reconfigure"/>
     </keybind>
-
   </keyboard>
   <mouse>
     <dragThreshold>8</dragThreshold>
@@ -731,10 +739,14 @@
     </context>
   </mouse>
   <menu>
+    <file>/var/lib/openbox/debian-menu.xml</file>
+    <file>debian-menu.xml</file>
+    <file>menu.xml</file>
     <!-- You can specify more than one menu file in here and they are all loaded,
        just don't make menu ids clash or, well, it'll be kind of pointless -->
     <!-- default menu file (or custom one in $HOME/.config/openbox/) -->
     <file>/usr/share/lxde/openbox/menu.xml</file>
+    <position><x>10</x><y>10</y></position>
     <hideDelay>200</hideDelay>
     <!-- if a press-release lasts longer than this setting (in milliseconds), the
        menu is hidden again -->
@@ -749,7 +761,7 @@
     <!-- show the manage desktops section in the client-list-(combined-)menu -->
   </menu>
   <applications>
-<!--
+    <!--
   # this is an example with comments through out. use these to make your
   # own rules, but without the comments of course.
 
@@ -821,15 +833,24 @@
   # end of the example
 -->
 
-    <application class="*">
+    <application type="normal">
       <focus>yes</focus>
       <decor>no</decor>
+      <position><x>center</x><y>center</y></position>
     </application>
 
     <application name="lxterminal">
       <maximized>true</maximized>
+    </application> 
+    
+    <application name="gmrun">
+      <position><x>100</x><y>550</y></position>
+      <layer>above</layer>
+      <focus>yes</focus>
+      <skip_pager>yes</skip_pager>
+      <skip_taskbar>yes</skip_taskbar>
     </application>
 
-
   </applications>
+
 </openbox_config>
