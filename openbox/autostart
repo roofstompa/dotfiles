@@ -1,8 +1,12 @@
-setxkbmap -layout gb,ru -option grp:switch,grp:shifts_toggle &
+setxkbmap -layout gb,ru -option grp:switch,grp:shifts_toggle,terminate:ctrl_alt_bksp &
 xset r rate 200 30 &
+xset dpms 0 0 7200 &
+xset s 0 0 &
 
+#dayplanner &
 nitrogen --restore &
 tint2 &
 xxkb &
+xpad &
 #wicd &
 #conky &
