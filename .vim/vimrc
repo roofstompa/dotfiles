@@ -1,0 +1,41 @@
+filetype on 
+set nocompatible          
+set ruler
+set showcmd
+set wildmenu
+set noexpandtab
+set autoindent 
+set hidden
+set history=100
+
+" SEARCH
+set hlsearch
+"nnoremap <silent> <Esc> :nohlsearch<Bar>:echo<CR>
+
+" TEXT FORMATTING
+set tabstop=4
+set shiftwidth=4
+
+" THEME & LAYOUT
+if has("gui_running")
+    "set guioptions-=m  "remove menu bar
+    set guioptions-=T  "remove toolbar
+    set guioptions-=r  "remove right-hand scroll bar
+    set guioptions-=L  "remove left-hand scroll bar
+	set guifont=Monospace\ 8
+    colorscheme duotone-dark
+else
+    colors wasabi256
+endif
+
+set t_Co=256
+set background=dark
+syntax on
+set number
+highlight LineNr ctermfg=gray guifg=gray
+set colorcolumn=90
+
+" KEY MAPPING
+map <C-t> :tabnew <CR>
+map <C-Tab> :tabnext <CR>
+map <C-S-Tab> :tabprev <CR>
